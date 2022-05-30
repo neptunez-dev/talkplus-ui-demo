@@ -16,21 +16,14 @@
 .resource-box li .btn{position:relative;display:block;width:100%;height:42px; border:1px solid #9F9F9F;border-radius:10px;color:#9F9F9F;font-size:16px;font-weight:500;padding-left:17px;line-height:40px;box-sizing:border-box;}
 .resource-box li .btn img{margin-right:10px;vertical-align:middle;line-height:40px;}
 .resource-box li .btn:after{content:'';display:block;width:8px;height:14px;position:absolute;top:14px;right:15px;background:url('../images/icon_arrow.png') no-repeat 0 0}
-
 .chat-wrap{flex:1;width:100%;position:relative;height:100%;box-sizing:border-box;padding:0 40px;}
 .chat-wrap-inner{position:relative; width:1280px;height:calc(100% - 200px);margin:98px auto 102px;padding: 0 40px 45px 40px;background:#F7F8FC;box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1); border-radius:30px;box-sizing:border-box;}
-.chat-container{}
 .chat-container .chat-title{height:24px;padding:38px 0 17px;font-family: 'Noto Sans KR'; font-weight: 500; font-size: 24px; letter-spacing: 0.02em;text-align:center;border-bottom:1px solid #D1D1D1;}
-
 .chat-area{width:100%;height:calc(100vh - 400px);overflow-y: auto;}
-
 .chat-container .chat-area .date{text-align:center;font-size: 15px;color:#676767;padding:23px 0 23px 0;}
 .chat-container .chat-area .notibox{text-align:center;padding-bottom:15px;}
 .chat-container .chat-area .notibox span{display:inline-block;padding:16px 28px;font-size:15px;background:#A3A9C0;border-radius:10px;color:#fff;line-height:22px;}
-
-.message-area{}
 .message-list{display:flex;margin-top:10px;}
-.message-list .avatar-image{}
 .message-list .message-list .avatar-image img{width:44px;height:44px;border-radius:44px;}
 .message-list .message-box{padding-left:15px;}
 .message-list .message-box .avatar-name{font-size:15px;color:#000;line-height:20px;}
@@ -51,33 +44,31 @@
 .message-list .file-area.file a{color:#575757;}
 .message-list .file-area.file{position:relative;width:304px;border-radius: 10px;background:#fff;box-sizing:border-box;padding:12px 75px 13px 24px;}
 .message-list .file-area.file .fileName{display:-webkit-box;width:100%;color:#575757;font-size:16px;line-height:20px;overflow:hidden;/*text-overflow:ellipsis;white-space: nowrap;*/-webkit-line-clamp:2;-webkit-box-orient: vertical;max-height:40px;}
-
-
 .message-list .file-area.file .fileSize{display:block;color:#9F9F9F;font-size:10px;margin-top:10px;}
 .message-list .file-area.file .filedown {width:31px;height:31px;background:url('../images/icon_download.png') no-repeat 0 0;position: absolute;top:50%;right:24px;margin-top:-15px;}
-
 .message-write-area .message-write-inner .btn-attach{position:absolute;left:0;top:50%;margin-top:-18px;}
-
 .message-write-area .message-write-inner .btn-attach a{position:relative; display:block;width:36px;height:36px;border:1px solid #9F9F9F;box-sizing:border-box;background:#fff;border-radius:18px;transition: all 0.4s ease;}
-.message-write-area .message-write-inner .btn-attach a::before{content:'';display:block;position:absolute;left:50%;top:50%;margin-left:-25%;width:14px;border:1px solid #9F9F9F;transform:rotate(0);}
-.message-write-area .message-write-inner .btn-attach a::after{content:'';display:block;position:absolute;left:50%;top:50%;margin-left:-25%;width:14px;border:1px solid #9F9F9F;transform:rotate(-90deg);}
+.message-write-area .message-write-inner .btn-attach a::before{content:'';display:block;position:absolute;left:50%;top:50%;margin-left:-8px;width:14px;border:1px solid #9F9F9F;transform:rotate(0);}
+.message-write-area .message-write-inner .btn-attach a::after{content:'';display:block;position:absolute;left:50%;top:50%;margin-left:-8px;width:14px;border:1px solid #9F9F9F;transform:rotate(-90deg);}
 .message-write-area .message-write-inner .btn-attach a:hover{border:1px solid #0836F0;background:#0836F0;}
 .message-write-area .message-write-inner .btn-attach a:hover::before{border:1px solid #fff;}
 .message-write-area .message-write-inner .btn-attach a:hover::after{border:1px solid #fff;}
-.message-write-area .message-write-inner .btn-attach a.active{border: 1px solid #0836F0;
-	background: #0836F0;}
+.message-write-area .message-write-inner .btn-attach a.active{border: 1px solid #0836F0;background: #0836F0;}
 .message-write-area .message-write-inner .btn-attach a.active::before {border: 1px solid #fff;}
 .message-write-area .message-write-inner .btn-attach a.active::after {border: 1px solid #fff;}
-
 .message-write-area .message-write-inner .btn-send{position:absolute;right:0;top:50%;margin-top:-19px;height:36px;line-height:36px;padding:0 17px;color:#fff;background:#0836F0;border-radius: 18px;}
 .message-write-area .message-write-inner .write-box{margin:0 85px 0 62px;}
 .message-write-area .message-write-inner .write-box textarea{width:100%;height:44px;border:1px solid #9F9F9F;box-sizing:border-box;border-radius:22px;resize: none;padding:11px 22px 11px 22px;line-height:20px;font-size:16px;font-family: 'Spoqa Han Sans Neo',sans-serif;font-weight:400;line-height:20px;outline: none;}
 .message-write-area .message-write-inner .write-box textarea:focus{border-color:#0836F0;}
 .message-write-area .message-write-inner .write-box textarea::placeholder{color:#9F9F9F;}
-
+.message-write-area .message-write-inner .write-box textarea{width:100%;height:44px;border:1px solid #9F9F9F;box-sizing:border-box;border-radius:22px;resize: none;padding:11px 22px 11px 22px;line-height:20px;font-size:16px;font-family: 'Spoqa Han Sans Neo',sans-serif;font-weight:400;line-height:20px;outline: none;}
+.message-write-area .message-write-inner .write-box textarea:focus{border-color:#0836F0;}
+.message-write-area .message-write-inner .write-box textarea::placeholder{color:#9F9F9F;}
+.message-write-area .message-write-inner .write-box input[type=text] {width: 100%;height: 44px;border: 1px solid #9F9F9F;box-sizing: border-box;border-radius: 22px;resize: none;padding: 11px 22px 11px 22px;line-height: 20px;font-size: 16px;font-family: 'Spoqa Han Sans Neo', sans-serif;font-weight: 400;line-height: 20px;outline: none;}
+.message-write-area .message-write-inner .write-box input[type=text]:focus {border-color: #0836F0;}
+.message-write-area .message-write-inner .write-box input[type=text]::placeholder {color: #9F9F9F;}
 .attach-box{position:absolute;left:18px;bottom:60px;opacity:0;visibility:hidden;transition: all .4s ease}
-.attach-box.active{opacity: 1;
-	visibility: visible;}
+.attach-box.active{opacity: 1;visibility: visible;}
 .attach-box ul{display:flex;justify-content: space-between;position:relative;width:320px;box-sizing:border-box;padding:25px 16px 21px;background:#fff;border-radius:20px 20px 20px 0px;}
 .attach-box ul::after{content:'';display:block;position:absolute;left:0;bottom:-16px;border-top:8px solid #fff;border-bottom:8px solid transparent;border-right:6px solid transparent;border-left:6px solid #fff;}
 .attach-box ul li{width:70px;}
@@ -85,8 +76,6 @@
 .attach-box ul li .attach.pic{background:url('../images/btn_picture.png') no-repeat 0 0;background-size:69px 69px;}
 .attach-box ul li .attach.video {background: url('../images/btn_video.png') no-repeat 0 0;background-size:69px 69px;}
 .attach-box ul li .attach.file {background: url('../images/btn_file.png') no-repeat 0 0;background-size:69px 69px;}
-
-
 /* width */
 .chat-area::-webkit-scrollbar {width: 10px;height: 5px;}
 /* Track */

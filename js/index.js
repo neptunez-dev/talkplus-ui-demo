@@ -252,21 +252,25 @@ function changeUserName(loginUserInfo){
 
 function sendMessageInputListener() {
 	$(document).on('keypress', '.enterMessage', function (e) {
-		if (e.keyCode === 13) {
-			e.preventDefault();
-			const messageText = $('.enterMessage').val();
-			$('.enterMessage').val('');
-			addMessageText(messageText);
+		if ($('.enterMessage').val() !== ''){
+			if (e.keyCode === 13) {
+				e.preventDefault();
+				const messageText = $('.enterMessage').val();
+				$('.enterMessage').val('');
+				addMessageText(messageText);
+			}
 		}
 	});
 }
 
 function sendMessageBtnListener() {
 	$(document).on('click', '#btnEnterMessage', function (e) {
-			e.preventDefault();
+		e.preventDefault();
+		if ($('.enterMessage').val() !== '') {
 			const messageText = $('.enterMessage').val();
 			$('.enterMessage').val('');
 			addMessageText(messageText);
+		}
 	});
 }
 
@@ -348,10 +352,10 @@ function b64toBlob (b64Data, contentType = '', sliceSize = 512) {
 function dataURLtoFile (dataurl, fileName) {
 	var arr = dataurl.split(','),
 			mime = arr[0].match(/:(.*?);/)[1],
-			bstr = atob(arr[1]), 
-			n = bstr.length, 
+			bstr = atob(arr[1]),
+			n = bstr.length,
 			u8arr = new Uint8Array(n);
-			
+
 	while(n--){
 			u8arr[n] = bstr.charCodeAt(n);
 	}
