@@ -102,16 +102,33 @@ const avatarhtml = function (message) {
 };
 
 const addMessagehtml = function (message) {
-	return `
-    <div class="message-list wirter">
-		<div class="message-box">
-			<div class="message-time">
-				<div class="timestamps">${new Date(message.createdAt).toLocaleTimeString()}</div>
-				<div class="message-text">${message.text}</div>
-			</div>
-		</div>
-	</div>`;
+	const messageList = document.createElement('div');
+	const messageBox = document.createElement('div');
+	const messageTime = document.createElement('div');
+	const messageText = document.createElement('div');
+	const timestamps = document.createElement('div');
+	
+	messageList.className = 'message-list wirter';
+	messageBox.className = 'message-box';
+	messageTime.className = 'message-time';
+	messageText.className = 'message-text';
+	timestamps.className = 'timestamps';
+
+	const safeText = XSSCheck(message.text);
+	messageText.innerText = safeText;
+	timestamps.innerHTML = new Date(message.createdAt).toLocaleTimeString();
+
+	messageTime.appendChild(messageText);
+	messageTime.appendChild(timestamps);
+	messageBox.appendChild(messageTime);
+	messageList.appendChild(messageBox);
+	
+	return messageList.outerHTML;
 };
+
+function XSSCheck(str) {
+	return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
 
 const addFilePicturehtml = function (message) {
 	return `
