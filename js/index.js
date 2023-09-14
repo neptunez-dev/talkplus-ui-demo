@@ -34,71 +34,107 @@ const avatarhtml = function (message) {
 	if (!message.profileImageUrl){
 		message.profileImageUrl = avatarUser[pick].image;
 	}
-	let template = '';
-	if (!message.fileUrl) {
-		template = `
-		<div class="message-list avatar">
-			<div class="avatar-image"><img src="${message.profileImageUrl}" /></div>
-			<div class="message-box">
-				<div class="avatar-name">${message.username}</div>
-				<div class="message-time">
-					<div class="message-text">${message.text}</div>
-					<div class="timestamps">${new Date(message.createdAt).toLocaleTimeString()}</div>
-				</div>
-			</div>
-		</div>`;
-	} else {
-		if (message.data.fileTypeLabel === 'video'){
-			template =
-				`<div class="message-list avatar">
-				<div class="avatar-image"><img src="${message.profileImageUrl}" /></div>
-				<div class="message-box">
-					<div class="avatar-name">${message.username}</div>
-					<div class="message-time">
-						<div class="file-area video">
-							<video width="304" controls>
-								<source src="${message.fileUrl}" type="video/mp4">
-							</video>
-						</div>
-						<div class="timestamps">${new Date(message.createdAt).toLocaleTimeString()}</div>
-					</div>
-				</div>
-			</div>`;
-		} else if (message.data.fileTypeLabel === 'image') {
-			template =
-				`<div class="message-list avatar">
-				<div class="avatar-image"><img src="${message.profileImageUrl}" /></div>
-				<div class="message-box">
-					<div class="avatar-name">${message.username}</div>
-					<div class="message-time">
-						<div class="file-area picture">
-							<a href="${message.fileUrl}" target="_blank"><img src="${message.fileUrl}"/></a>
-						</div>
-						<div class="timestamps">${new Date(message.createdAt).toLocaleTimeString()}</div>
-					</div>
-				</div>
-			</div>`;
-		} else {
-			template =
-			`<div class="message-list avatar">
-				<div class="avatar-image"><img src="${message.profileImageUrl}" /></div>
-				<div class="message-box">
-					<div class="avatar-name">${message.username}</div>
-					<div class="message-time">
-						<div class="file-area file">
-							<a href="${message.fileUrl}" target="_blank">
-								<sapn class="fileName">${message.data.fileNameLabel}</sapn>
-								<sapn class="fileSize">용량 : ${message.data.fileSizeLabel} Byte</sapn>
-								<sapn class="filedown"></sapn>
-							</a>
-						</div>
-						<div class="timestamps">${new Date(message.createdAt).toLocaleTimeString()}</div>
-					</div>
-				</div>
-			</div>`;
-		}
-	}
-	return template;
+	const messageList = document.createElement('div');
+	const avatarImage = document.createElement('div');
+	const avatarName = document.createElement('div');
+	const messageBox = document.createElement('div');
+	const messageTime = document.createElement('div');
+	const messageText = document.createElement('div');
+	const timestamps = document.createElement('div');
+	const fileArea = document.createElement('div');
+	
+	messageList.className = 'message-list avatar';
+	avatarImage.className = 'avatar-image';
+	avatarName.className = 'avatar-name';
+	messageBox.className = 'message-box';
+	messageTime.className = 'message-time';
+	messageText.className = 'message-text';
+	timestamps.className = 'timestamps';
+	fileArea.className = 'file-area';
+
+	const safeText = XSSCheck(message.text);
+	messageText.innerText = safeText;
+	timestamps.innerHTML = new Date(message.createdAt).toLocaleTimeString();
+	avatarName.innerText = message.username;
+
+	const profileImage = new Image();
+	profileImage.src = message.profileImageUrl;
+	profileImage.onload = function () {
+		avatarImage.appendChild(profileImage);
+	};
+
+	messageTime.appendChild(messageText);
+	messageTime.appendChild(timestamps);
+	messageBox.appendChild(avatarName);
+	messageBox.appendChild(messageTime);
+	messageList.appendChild(avatarImage);
+	messageList.appendChild(messageBox);
+
+	// if (message.fileUrl) {
+
+	// 	template = `
+	// 	<div class="message-list avatar">
+	// 		<div class="avatar-image"><img src="${message.profileImageUrl}" /></div>
+	// 		<div class="message-box">
+	// 			<div class="avatar-name">${message.username}</div>
+	// 			<div class="message-time">
+	// 				<div class="message-text">${message.text}</div>
+	// 				<div class="timestamps">${new Date(message.createdAt).toLocaleTimeString()}</div>
+	// 			</div>
+	// 		</div>
+	// 	</div>`;
+	// } else {
+	// 	if (message.data.fileTypeLabel === 'video'){
+	// 		template =
+	// 			`<div class="message-list avatar">
+	// 			<div class="avatar-image"><img src="${message.profileImageUrl}" /></div>
+	// 			<div class="message-box">
+	// 				<div class="avatar-name">${message.username}</div>
+	// 				<div class="message-time">
+	// 					<div class="file-area video">
+	// 						<video width="304" controls>
+	// 							<source src="${message.fileUrl}" type="video/mp4">
+	// 						</video>
+	// 					</div>
+	// 					<div class="timestamps">${new Date(message.createdAt).toLocaleTimeString()}</div>
+	// 				</div>
+	// 			</div>
+	// 		</div>`;
+	// 	} else if (message.data.fileTypeLabel === 'image') {
+	// 		template =
+	// 			`<div class="message-list avatar">
+	// 			<div class="avatar-image"><img src="${message.profileImageUrl}" /></div>
+	// 			<div class="message-box">
+	// 				<div class="avatar-name">${message.username}</div>
+	// 				<div class="message-time">
+	// 					<div class="file-area picture">
+	// 						<a href="${message.fileUrl}" target="_blank"><img src="${message.fileUrl}"/></a>
+	// 					</div>
+	// 					<div class="timestamps">${new Date(message.createdAt).toLocaleTimeString()}</div>
+	// 				</div>
+	// 			</div>
+	// 		</div>`;
+	// 	} else {
+	// 		template =
+	// 		`<div class="message-list avatar">
+	// 			<div class="avatar-image"><img src="${message.profileImageUrl}" /></div>
+	// 			<div class="message-box">
+	// 				<div class="avatar-name">${message.username}</div>
+	// 				<div class="message-time">
+	// 					<div class="file-area file">
+	// 						<a href="${message.fileUrl}" target="_blank">
+	// 							<sapn class="fileName">${message.data.fileNameLabel}</sapn>
+	// 							<sapn class="fileSize">용량 : ${message.data.fileSizeLabel} Byte</sapn>
+	// 							<sapn class="filedown"></sapn>
+	// 						</a>
+	// 					</div>
+	// 					<div class="timestamps">${new Date(message.createdAt).toLocaleTimeString()}</div>
+	// 				</div>
+	// 			</div>
+	// 		</div>`;
+	// 	}
+	// }
+	return messageList;
 };
 
 const addMessagehtml = function (message) {
