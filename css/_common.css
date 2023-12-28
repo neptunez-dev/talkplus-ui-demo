@@ -27,15 +27,15 @@
 .message-list .message-list .avatar-image img{width:44px;height:44px;border-radius:44px;}
 .message-list .message-box{padding-left:15px;}
 .message-list .message-box .avatar-name{font-size:15px;color:#000;line-height:20px;}
-.message-list .message-box .message-time{margin-top:9px;display:flex;align-items:flex-end;}
-.message-list .message-box .message-time .message-text{font-size:16px;line-height:22px;padding:13px 15px;}
-.message-list .message-box .message-time .timestamps{font-size:12px;color:#9F9F9F;min-width:70px;}
+.message-list .message-box .message-cont{margin-top:9px;display:flex;align-items:flex-end;}
+.message-list .message-box .message-cont .message-text{font-size:16px;line-height:22px;padding:13px 15px;}
+.message-list .message-box .message-cont .timestamps{font-size:12px;color:#9F9F9F;min-width:70px;}
 .message-list.avatar{justify-content: flex-start;}
-.message-list.avatar .message-box .message-time .message-text {color: #575757;background: #fff;border-radius: 0 10px 10px 10px;}
-.message-list.avatar .message-box .message-time .timestamps {padding-left: 10px;}
+.message-list.avatar .message-box .message-cont .message-text {color: #575757;background: #fff;border-radius: 0 10px 10px 10px;}
+.message-list.avatar .message-box .message-cont .timestamps {padding-left: 10px;}
 .message-list.wirter {justify-content: flex-end;padding-right:15px;}
-.message-list.wirter .message-box .message-time .message-text {color: #fff;background: #0836F0;border-radius: 10px 0 10px 10px;}
-.message-list.wirter .message-box .message-time .timestamps {padding-right: 10px;text-align:right;}
+.message-list.wirter .message-box .message-cont .message-text {color: #fff;background: #0836F0;border-radius: 10px 0 10px 10px;}
+.message-list.wirter .message-box .message-cont .timestamps {padding-right: 10px;text-align:right;}
 .message-write-area{position:absolute;bottom:45px;left:0;right:0;}
 .message-write-area .message-write-inner{position:relative;margin:0 40px;height:44px;vertical-align:center;}
 .message-list .file-area{max-width:304px;border-radius:10px;}
