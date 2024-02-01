@@ -56,8 +56,8 @@
 .message-write-area .message-write-inner .btn-attach a.active{border: 1px solid #0836F0;background: #0836F0;}
 .message-write-area .message-write-inner .btn-attach a.active::before {border: 1px solid #fff;}
 .message-write-area .message-write-inner .btn-attach a.active::after {border: 1px solid #fff;}
-.message-write-area .message-write-inner .btn-send{position:absolute;right:0;top:50%;margin-top:-19px;height:36px;line-height:36px;padding:0 17px;color:#fff;background:#0836F0;border-radius: 18px;}
-.message-write-area .message-write-inner .write-box{margin:0 85px 0 62px;}
+.message-write-area .message-write-inner .btn-send{position:absolute;right:0;top:0;height:44px;line-height:44px;padding:0 20px;color:#fff;background:#0836F0;border-radius: 22px;}
+.message-write-area .message-write-inner .write-box{margin:0 96px 0 62px;}
 .message-write-area .message-write-inner .write-box textarea{width:100%;height:44px;border:1px solid #9F9F9F;box-sizing:border-box;border-radius:22px;resize: none;padding:11px 22px 11px 22px;line-height:20px;font-size:16px;font-family: 'Spoqa Han Sans Neo',sans-serif;font-weight:400;line-height:20px;outline: none;}
 .message-write-area .message-write-inner .write-box textarea:focus{border-color:#0836F0;}
 .message-write-area .message-write-inner .write-box textarea::placeholder{color:#9F9F9F;}

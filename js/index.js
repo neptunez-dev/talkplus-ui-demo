@@ -30,7 +30,6 @@ let client;
 let loginUserInfo = {};
 
 const avatarhtml = function (message) {
-	console.log('message', message)
 	let pick = Math.floor(Math.random() * avatarUser.length);
 	if (!message.profileImageUrl){
 		message.profileImageUrl = avatarUser[pick].image;
@@ -177,7 +176,6 @@ const addFilehtml = function (message) {
 	</div>`;
 };
 
-
 $(document).ready(function () {
 	//$('.chat-title').text(DEMO_CHANNEL_ID);
 	const today = new Date();
@@ -292,7 +290,6 @@ function sendMessageBtnListener() {
 }
 
 function populateChatWindowWithMessages(messages) {
-	console.log('1. 전체 메시지 불러오기', messages)
 	const customMessages = messages.slice(-8, messages.length);
 	for (let i = customMessages.length - 1; i >= 0; i--) {
 		const message = messages[i];
@@ -304,13 +301,13 @@ function populateChatWindowWithMessages(messages) {
 }
 
 function addMessageText(messageText) {
+	if (messageText.trim() === '') return;
 	client.sendMessage({channelId: DEMO_CHANNEL_ID, type: 'text', text: messageText}, function (err, data) {
 		if (err) {
 			return alert(err);
 		}
 		let html = '';
 		html = addMessagehtml(data.message);
-		console.log('addMessageText', data.message)
 		$('.message-area').append(html);
 		scrollDown();
 	});
@@ -351,19 +348,15 @@ function showAttechFilebox() {
 function b64toBlob (b64Data, contentType = '', sliceSize = 512) {
 	const byteCharacters = atob(b64Data);
 	const byteArrays = [];
-
 	for (let offset = 0; offset < byteCharacters.length; offset += sliceSize) {
 		const slice = byteCharacters.slice(offset, offset + sliceSize);
-
 		const byteNumbers = new Array(slice.length);
 		for (let i = 0; i < slice.length; i++) {
 			byteNumbers[i] = slice.charCodeAt(i);
 		}
-
 		const byteArray = new Uint8Array(byteNumbers);
 		byteArrays.push(byteArray);
 	}
-
 	const blob = new Blob(byteArrays, { type: contentType });
 	return blob;
 }
@@ -380,7 +373,6 @@ function dataURLtoFile (dataurl, fileName) {
 	}
 	return new File([u8arr], fileName, {type:mime});
 }
-
 
 function sendFileImage() {
 	$('.attach-box .attach.pic').on('click', function () {
@@ -403,7 +395,6 @@ function sendFileImage() {
 		});
 	});
 }
-
 
 function sendFileVideo() {
 	$('.attach-box .attach.video').on('click', function () {
